@@ -1,0 +1,94 @@
+import UIKit
+
+var str = "Hello, playground"
+
+
+// 1) Write a function called siftBeans(fromGroceryList:) that takes a grocery list (as an array of strings) and “sifts out” the beans from the other groceries. The function should take one argument that has a parameter name called list, and it should return a named tuple of the type (beans: [String], otherGroceries: [String]).
+
+
+func siftBeans(from list: [String]) -> (beans: [String], otherGroceries: [String]) {
+    var otherGroceries = [String]()
+    var beans = [String]()
+    
+    // looping around the array to find if any item contains "beans"
+    for eachItem in list {
+        if eachItem.contains("beans") {
+            beans.append(eachItem)
+        } else {
+            otherGroceries.append(eachItem)
+        }
+    }
+    return (beans, otherGroceries)
+}
+
+let result = siftBeans(from: ["some beans", "other beans", "oranges", "apples", "some more deadly beans"])
+print(result)
+
+
+
+
+// 2) Make a calculator class with a function name “equals” that takes an enum case as value like multiply, subtraction, addition, square root, division.
+
+
+enum Operation {
+    case addition(Double, Double)
+    case subtraction(Double, Double)
+    case multiplication(Double, Double)
+    case division(Double, Double)
+    case squareRoot(Double)
+}
+
+class Calculator {
+    func equals(using arg: Operation) -> String {
+        switch arg {
+        case .addition(let x, let y):
+            return "\(x) added to \(y) equals \(x+y)"
+        case .subtraction(let x, let y):
+            return "\(x) subtracted from \(y) equals \(x-y)"
+        case .multiplication(let x, let y):
+            return "\(x) multiplied to \(y) equals \(x*y)"
+        case .division(let x, let y):
+            return "\(x) divided by \(y) equals \(x/y)"
+        case .squareRoot(let x):
+            return "The square root of \(x) is \(x.squareRoot())"
+        }
+    }
+}
+
+var calc = Calculator()
+print(calc.equals(using: .addition(6.0, 5.4)))
+print(calc.equals(using: .division(60, 40)))
+
+
+
+
+// 3) Make the same calculator using functions as an argument, define all type functions in a struct.
+
+struct StructureOps {
+    func addition(using x: Double, and y: Double) -> String {
+        return "Adding \(x) to \(y) equals \(x+y)"
+    }
+
+    func subtraction(using x: Double, and y: Double) -> String {
+        return "Subtracting \(x) from \(y) equals \(x-y)"
+    }
+
+    func multiplication(using x: Double, and y: Double) -> String {
+        return "Multiplying \(x) to \(y) equals \(x*y)"
+    }
+
+    func division(using x: Double, and y: Double) -> String {
+        return "Dividing \(x) by \(y) equals \(x/y)"
+    }
+
+    func squareRoot(using x: Double) -> String {
+        return "Square root of \(x) equals \(x.squareRoot())"
+    }
+}
+
+var someVar = StructureOps()
+someVar.addition(using: 4, and: 5)
+
+
+
+
