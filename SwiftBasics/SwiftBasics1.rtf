@@ -29,7 +29,7 @@ var empPro = [EmpProfessional(empId: 1, name: "John Doe", dept: "iOS", branch: "
               EmpProfessional(empId: 5, name: "Ching Wang Lu", dept: "Web", branch: "China", experience: 2)]
 
 // Question 1) Third employee structure that contains info from both based on common id
-struct EmpCombined{
+struct EmpCombined {
     var empId: Int
     var name: String
     var country: String
@@ -42,8 +42,8 @@ struct EmpCombined{
 
 var combinedArray = [EmpCombined]()
 
-for i in 0...empPers.count - 1{
-    for j in 0...empPro.count - 1{
+for i in 0...empPers.count - 1 {
+    for j in 0...empPro.count - 1 {
         if empPers[i].empId == empPro[j].empId {
             combinedArray.append(EmpCombined(empId: empPers[i].empId, name: empPers[i].name, country: empPers[i].country, address: empPers[i].address, hobbies: empPers[i].hobbies, dept: empPro[j].dept, branch: empPro[j].branch, experience: empPro[j].experience))
         }
@@ -54,8 +54,8 @@ print(combinedArray)
 
 // Question 3) List of employees in a certain department
 
-func particularDept (using arg1: [EmpProfessional] ,and arg2: String){
-    for i in arg1{
+func particularDept(using arg1: [EmpProfessional] ,and arg2: String) {
+    for i in arg1 {
         if i.dept == arg2{
             print(i.name)
         }
@@ -66,8 +66,8 @@ particularDept(using: empPro, and: "iOS")
 
 // Question 4) List of employees that live in the same country and work in the same branch
 
-func commonCountryBranch(using arg1: [EmpCombined]){
-    for i in arg1{
+func commonCountryBranch(using arg1: [EmpCombined]) {
+    for i in arg1 {
         if i.country == i.branch{
             print(i.name)
         }
@@ -78,8 +78,8 @@ commonCountryBranch(using: combinedArray)
 
 // Question 5) Have a hobby with their experience
 
-func hobbyWithExp (using arg1: [EmpCombined]) {
-    for i in arg1{
+func hobbyWithExp(using arg1: [EmpCombined]) {
+    for i in arg1 {
         if let unwrapHobby = i.hobbies{
             print("\(i.name) has an experience of \(i.experience) years and likes \(unwrapHobby).")
         }
@@ -90,7 +90,7 @@ hobbyWithExp(using: combinedArray)
 
 // Question 6) Print employee names starting with 'S'
 
-func nameWithS (using arg: [EmpCombined]){
+func nameWithS(using arg: [EmpCombined]) {
     for i in arg{
         if i.name.starts(with: "S"){
             print(i.name)
