@@ -1,0 +1,134 @@
+import UIKit
+
+// 1) What is an extension?
+
+// Ans) An extension in Swift lets us extend the functionality of an enum, struct, class or even a protocol type. We extend an existing type when we don’t usually have access to the original source code. We can add computed properties, add methods, provide new initializers, subscripts and even more.
+
+
+
+
+// 2) Create a class and write the delegate of UITextField in an extension of the class.
+
+class SomeViewController: UIViewController {
+    // some code
+}
+
+extension SomeViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // some more code here, maybe an if statement for checking if the addressTextField is valid or not
+        // if yes then we return true
+        return true
+    }
+}
+
+
+
+
+// 3) Write a protocol and create an extension of the protocol.
+
+protocol MyNewProtocol {
+    // bunch of code here
+}
+
+// creating an extension for the protocol
+extension MyNewProtocol {
+    func sayHello() {
+        print("Hello!")
+    }
+}
+
+
+// now this class is adapting to MyNewProtocol
+class SomeRandomClass: MyNewProtocol {
+    
+    // some methods and properties here
+}
+
+let something = SomeRandomClass()
+print(something.sayHello()) // here I am able to call the method sayHello() defined in an extension to MyNewProtocol
+
+
+
+
+
+// 4) Write an enum and create an extension of the enum.
+
+enum SomeRandomEnum {
+    case someCase
+    case someOtherCase
+}
+
+extension SomeRandomEnum {
+    func justSaySomething(using arg: SomeRandomEnum) -> String {
+        switch arg {
+        case .someCase:
+            return "I'm getting the hang of it."
+        case .someOtherCase:
+            return "Extensions are easy!"
+        }
+    }
+}
+
+
+
+
+
+// 5) What are Generics?
+
+// Ans) Generic code lets us create reusable, flexible function types that can work with any type based on how we define them. It lets us write code without any duplication and with some specific intent as well.
+
+
+
+
+// 6) Explain the difference between map and compactMap with an example.
+
+// Ans) Taking example of a function that swaps two integer values :-
+
+func swapTwoNumbers(using a: inout Int, and b: inout Int) {
+    let tempA = a
+    a = b
+    b = tempA
+}
+
+// Now if I would've needed a function to swap two strings then I'd have to write the whole function again for String parameters
+
+func swapTwoStrings(using a: inout String, and b: inout String) {
+    let tempA = a
+    a = b
+    b = tempA
+}
+
+// instead we could write a generic function that takes in a parameter type T, all it says is that a and b must be of the same type
+
+func swapTwoValues<T>(using a: inout T, and b: inout T) {
+    let tempA = a
+    a = b
+    b = tempA
+}
+
+
+// 7) Explain the difference between map and compactMap with an example
+
+// Ans) Using 'map' we can convert a sequence of values into a new array of values, using a closure as a transform. CompactMap on the other hand lets us work with optional or nil values which isn't the case with the normal map.
+
+
+// 9) Write a function to filter the name of employees with age greater than 25
+
+struct Person {
+    var name: String
+    var age: Int
+}
+
+let person1 = Person(name: "Sam", age: 23)
+let person2 = Person(name: "John", age: 30)
+let person3 = Person(name: "Rob", age: 27)
+let person4 = Person(name: "Luke", age: 20)
+
+let personArray = [person1, person2, person3, person4]
+
+print(personArray.filter { $0.age > 25 })
+
+
+
+
+
