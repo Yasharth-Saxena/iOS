@@ -36,7 +36,14 @@ bundle’s resources
 
 6) Explain how an app delegate is declared in an Xcode Project.
 
-Ans) An app delegate is defined as a sub-class of UIResponder by Xcode project templates.
+Ans) An app delegate is defined as a sub-class of UIResponder by Xcode project
+templates.
+
+extension UIViewController {
+    var someAppDelegate: AppDelegate {
+    return UIApplication.shared.delegate as! AppDelegate
+   }
+}
 
 7) Explain how you define variables in Swift.
 
