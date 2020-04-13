@@ -19,7 +19,7 @@ class SegmentViewController: UIViewController {
     }
     
 
-    @IBAction func indexChanged(_ sender: Any) {
+    @IBAction func indexChanged(_ sender: UISegmentedControl) {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             textLabel.text = "Employer Segment Selected"
@@ -29,14 +29,5 @@ class SegmentViewController: UIViewController {
             break
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
