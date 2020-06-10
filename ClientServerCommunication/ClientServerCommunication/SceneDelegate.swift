@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  AutoLayoutTwo
+//  ClientServerCommunication
 //
 //  Created by Yasharth Saxena on 10/06/20.
 //  Copyright © 2020 Yasharth Saxena. All rights reserved.
